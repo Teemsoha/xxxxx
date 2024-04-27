@@ -35,7 +35,7 @@
     }
   },
   "addons": [{
-    "plan": "heroku-postgresq2",
+    "plan": "heroku-postgresql:mini",
     "options": {
       "version": "15"
     }

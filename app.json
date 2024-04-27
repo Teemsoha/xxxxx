@@ -57,7 +57,7 @@
   },{
     "url": "https://github.com/chrismytton/heroku-buildpack-jq"
   },{
-    "url": "heroku/ruby"
+    "url": "heroku/python"
   }],
   "formation": {
     "worker": {

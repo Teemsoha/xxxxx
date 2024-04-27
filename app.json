@@ -37,19 +37,11 @@
   "addons": [{
     "plan": "heroku-postgresql:mini",
     "options": {
-      "version": "16"
+      "version": "16.2"
     }
   }],
   "buildpacks": [{
-    "url": "https://github.com/heroku/heroku-buildpack-pgbouncer"
-  },{
     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
-    },{
-    "url":"https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-  },{
-    "url": "https://github.com/riganf/heroku-buildpack-p7zip"
   },{
     "url": "heroku/python"
   }],

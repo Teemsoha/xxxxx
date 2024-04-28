@@ -34,14 +34,9 @@
       "required": false
     }
   },
-  "addons": [{
-    "plan": "heroku-postgresql:mini",
-    "options": {
-      "version": "16"
-    }
-  }],
+  "addons": ["heroku-postgresql:mini", "herokuconnect:demo"],
   "buildpacks": [{
-    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    "url":"https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
   },{
     "url": "heroku/python"
   }],

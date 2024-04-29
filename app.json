@@ -32,6 +32,17 @@
       "description": "اســـم التطبيـــق - نفـس اول مربـع بالقائمـة نسـخ لصـق حـروف انكلـش صغيـره",
       "value": "",
       "required": false
+   },
+    },
+
+    "UPSTREAM_REPO": {
+
+      "description": "رمز السورس لا تغيره ابدا",
+
+      "value": "https://github.com/Teemsoha/Ziloid",
+
+      "required": false
+
     }
   },
   "addons": ["heroku-postgresql:mini"],

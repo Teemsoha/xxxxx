@@ -6,17 +6,17 @@ _get_ziplink () {
     regex='(https?)://github.com/.+/.+'
     if [[ $UPSTREAM_REPO == "zel" ]]
     then
-        echo "aHR0cHM6Ly9naXRodWIuY29tL1ppbHphbGxsL1pUaG9uL2FyY2hpdmUvbGl0ZS56aXA=" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1plZC1UaG9uL1plbHphbC9hcmNoaXZlL1phcmEuemlw" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
     then
         if [[ $UPSTREAM_REPO_BRANCH ]]
         then
             echo "${UPSTREAM_REPO}/archive/${UPSTREAM_REPO_BRANCH}.zip"
         else
-            echo "${UPSTREAM_REPO}/archive/lite.zip"
+            echo "${UPSTREAM_REPO}/archive/Zara.zip"
         fi
     else
-        echo "aHR0cHM6Ly9naXRodWIuY29tL1ppbHphbGxsL1pUaG9uL2FyY2hpdmUvbGl0ZS56aXA=" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1plZC1UaG9uL1plbHphbC9hcmNoaXZlL1phcmEuemlw" | base64 -d
     fi
 }
 
@@ -26,12 +26,12 @@ _get_repolink () {
     regex='(https?)://github.com/.+/.+'
     if [[ $UPSTREAM_REPO == "zel" ]]
     then
-        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL1ppbHphbGxsL1pUaG9uLmdpdA===" | base64 -d`
+        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL1plZC1UaG9uL1plbHphbC5naXQ=" | base64 -d`
     elif [[ $UPSTREAM_REPO =~ $regex ]]
     then
         rlink=`echo "${UPSTREAM_REPO}"`
     else
-        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL1ppbHphbGxsL1pUaG9uLmdpdA===" | base64 -d`
+        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL1plZC1UaG9uL1plbHphbC5naXQ=" | base64 -d`
     fi
     echo "$rlink"
 }
@@ -44,8 +44,8 @@ _run_python_code() {
 _run_catpack_git() {
     $(_run_python_code 'from git import Repo
 import sys
-OFFICIAL_UPSTREAM_REPO = "https://github.com/Teemsoha/Ziloid"
-ACTIVE_BRANCH_NAME = "'$UPSTREAM_REPO_BRANCH'" or "lite"
+OFFICIAL_UPSTREAM_REPO = "https://github.com/Teemsoha/xxxxx"
+ACTIVE_BRANCH_NAME = "lite"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
 origin.fetch()
@@ -58,7 +58,7 @@ _run_cat_git() {
     $(_run_python_code 'from git import Repo
 import sys
 OFFICIAL_UPSTREAM_REPO="'$repolink'"
-ACTIVE_BRANCH_NAME = "lite"
+ACTIVE_BRANCH_NAME = "'$UPSTREAM_REPO_BRANCH'" or "lite"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
 origin.fetch()
@@ -68,7 +68,7 @@ repo.heads[ACTIVE_BRANCH_NAME].checkout(True) ')
 
 _set_bot () {
     local zippath
-    zippath="lite.zip"
+    zippath="Zara.zip"
     echo "⌭ جاري تنزيل اكواد السورس ⌭"
     wget -q $(_get_ziplink) -O "$zippath"
     echo "⌭ تفريغ البيانات ⌭"
@@ -81,9 +81,9 @@ _set_bot () {
     _run_catpack_git
     cd $CATPATH
     _run_cat_git
-    python3 ../setup/updater.py ../requirements.txt requirements.txt
+    python3 ../setup/updates.py ../requirements.txt requirements.txt
     chmod -R 755 bin
-    echo "⌭ جـاري بـدء تنصيـب زدثـــون ⌭"
+    echo "⌭ جـاري بـدء تنصيـب ســهـۍ ⌭"
     echo "
 
     "
